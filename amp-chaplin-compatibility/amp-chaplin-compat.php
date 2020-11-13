@@ -9,14 +9,13 @@
  *
  * @wordpress-plugin
  * Plugin Name: AMP Chaplin Theme Compat
- * Plugin URI: 
+ * Plugin URI: https://github.com/milindmore22/amp-chaplin-compatibility/
  * Description: Plugin to add <a href="https://wordpress.org/plugins/amp/">AMP plugin</a> compatibility to the <a href="https://wordpress.org/themes/chaplin/">Chaplin</a> theme by Anders Norén.
  * Version: 0.2
  * Author: Weston Ruter, Google, milindmore22
- * Author URI: https://weston.ruter.net/
+ * Author URI: https://github.com/milindmore22/
  * License: GNU General Public License v2 (or later)
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Gist Plugin URI: 
  */
 
 namespace Google\AMP_Chaplin_Theme_Compat;
