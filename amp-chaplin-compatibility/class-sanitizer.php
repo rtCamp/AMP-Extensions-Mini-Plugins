@@ -64,7 +64,7 @@ class Sanitizer extends AMP_Base_Sanitizer {
 				$search_toggle
 			);
 
-			$search_toggle->setAttribute( 'on', 'tap:AMP.setState( { searchActive: ! searchActive, mobileMenuActive: false } )' );
+			$search_toggle->setAttribute( 'on', 'tap:AMP.setState( { searchActive: ! searchActive, MenuActive: false } )' );
 			$search_toggle->setAttribute(
 				'data-amp-bind-class',
 				sprintf( '%s + ( searchActive ? " active" : "" )', wp_json_encode( $search_toggle->getAttribute( 'class' ) ) )
@@ -75,7 +75,7 @@ class Sanitizer extends AMP_Base_Sanitizer {
 				sprintf( '%s + ( searchActive ? " show-modal active" : "" )', wp_json_encode( $search_modal->getAttribute( 'class' ) ) )
 			);
 
-			$search_modal_close->setAttribute( 'on', 'tap:AMP.setState( { searchActive: ! searchActive, mobileMenuActive: false } )' );
+			$search_modal_close->setAttribute( 'on', 'tap:AMP.setState( { searchActive: ! searchActive, MenuActive: false } )' );
 			$search_modal_close->setAttribute(
 				'data-amp-bind-class',
 				sprintf( '%s + ( searchActive ? " active" : "" )', wp_json_encode( $search_modal_close->getAttribute( 'class' ) ) )
