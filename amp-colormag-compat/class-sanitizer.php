@@ -25,9 +25,8 @@ class Sanitizer extends AMP_Base_Sanitizer {
 		// Set up nav menu.
 		$menu_toggle    = $xpath->query( '//p[ @class = "menu-toggle" ]' )->item( 0 );
 		$menu_container = $xpath->query( '//nav[ @id = "site-navigation" ]' )->item( 0 );
-		$mobile_menu    = $xpath->query( '//ul[ @id = "menu-mobile-menu" ]' )->item( 0 );
 
-		if ( $menu_toggle instanceof DOMElement ) {
+		if ( $menu_toggle instanceof DOMElement && $menu_container instanceof DOMElement ) {
 
 			$menu_toggle->parentNode->insertBefore(
 				$this->create_amp_state( 'MenuActive', false ),
@@ -38,11 +37,6 @@ class Sanitizer extends AMP_Base_Sanitizer {
 			$menu_toggle->setAttribute( 'tabindex', '1' );
 			$menu_toggle->setAttribute( 'on', 'tap:AMP.setState( { MenuActive: ! MenuActive, searchActive: false } )' );
 			$menu_toggle->setAttribute(
-				'data-amp-bind-aria-expanded',
-				sprintf( '( MenuActive ? "true" : "false" )' )
-			);
-
-			$mobile_menu->setAttribute(
 				'data-amp-bind-aria-expanded',
 				sprintf( '( MenuActive ? "true" : "false" )' )
 			);
