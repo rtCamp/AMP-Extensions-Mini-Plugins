@@ -73,7 +73,7 @@ class Sanitizer extends AMP_Base_Sanitizer {
 			);
 		}
 
-		// Gallery.
+		// Gallery BX Slider.
 		$galleries = $xpath->query( '//ul[contains(@class,"gallery-images")]' );
 
 		if ( $galleries instanceof \DOMNodeList ) {

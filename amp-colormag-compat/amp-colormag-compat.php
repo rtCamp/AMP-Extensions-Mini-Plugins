@@ -9,9 +9,9 @@
  *
  * @wordpress-plugin
  * Plugin Name: AMP ColorMag Theme Compat
- * Plugin URI: https://github.com/milindmore22/amp-colormag-compatibility/
+ * Plugin URI: https://github.com/milindmore22/amp-colormag-compat
  * Description: Plugin to add <a href="https://wordpress.org/plugins/amp/">AMP plugin</a> compatibility to the <a href="https://wordpress.org/themes/colormag/">ColorMag</a> theme by ThemeGrill.
- * Version: 0.2
+ * Version: 0.1
  * Author: milindmore22
  * Author URI: https://github.com/milindmore22/
  * License: GNU General Public License v2 (or later)
@@ -32,11 +32,10 @@ function is_amp() {
 /**
  * Remove JS that replaces no-js with js class.
  *
- * @see \lovecraft_html_js_class()
+ * @see \colormag_scripts_styles_method()
  */
 function add_hooks() {
 	if ( 'colormag' === get_template() && is_amp() ) {
-		remove_action( 'wp_head', 'chaplin_no_js_class', 10 );
 		add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\override_scripts_and_styles', 11 );
 		add_filter( 'amp_content_sanitizers', __NAMESPACE__ . '\filter_sanitizers' );
 	}
@@ -72,19 +71,3 @@ function filter_sanitizers( $sanitizers ) {
 	$sanitizers[ __NAMESPACE__ . '\Sanitizer' ] = [];
 	return $sanitizers;
 }
-
-/**
- * Bonus improvement: add font-display:swap to the Google Fonts!
- *
- * @param string $src    Stylesheet URL.
- * @param string $handle Style handle.
- * @return string Filtered stylesheet URL.
- */
-function filter_font_style_loader_src( $src, $handle ) {
-	if ( 'colormag-fontawesome' === $handle ) {
-		$src = add_query_arg( 'display', 'swap', $src );
-	}
-	return $src;
-}
-
-//add_filter( 'style_loader_src', __NAMESPACE__ . '\filter_font_style_loader_src', 10, 2 );
