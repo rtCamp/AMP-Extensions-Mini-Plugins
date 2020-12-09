@@ -6,3 +6,9 @@
 .main-small-navigation .menu-primary-container, .main-small-navigation .menu{
     padding-top: 25px;
 }
+
+@media screen and (max-width: 768px) {
+    .better-responsive-menu .sub-menu.sub-menu {
+	display: block;
+    }
+}
