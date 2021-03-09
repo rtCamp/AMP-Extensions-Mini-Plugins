@@ -80,7 +80,6 @@ class Sanitizer extends AMP_Base_Sanitizer {
 			foreach ( $submenus as $key => $submenu ) {
 				$submenu_toggle_id = $submenu_toggle_ids[ $key ];
 				if ( $submenu instanceof DOMElement && isset( $submenu_toggle_id ) ) {
-						error_log( $submenu_toggle_id . '---->'  );
 						$submenu->setAttribute(
 							'data-amp-bind-class',
 							sprintf( '%s + ( ' . $submenu_toggle_id . ' ? " active" : "" )', wp_json_encode( $submenu->getAttribute( 'class' ) ) )
