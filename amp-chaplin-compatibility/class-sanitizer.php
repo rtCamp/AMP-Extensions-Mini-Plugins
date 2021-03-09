@@ -53,6 +53,42 @@ class Sanitizer extends AMP_Base_Sanitizer {
 
 		}
 
+		// submenu toggle.
+		$submenus_toggle = $xpath->query( '//a[contains(@class,"sub-menu-toggle")]' );
+		$submenus        = $xpath->query( '//div[contains(@class,"menu-modal")]//ul[contains(@class,"sub-menu")]' );
+
+		$submenu_toggle_ids = array();
+		if ( $submenus_toggle instanceof \DOMNodeList && $submenus instanceof \DOMNodeList ) {
+			foreach ( $submenus_toggle as $key => $submenu_toggle ) {
+				$submenu_toggle_id          = wp_unique_id( 'submenu_toggle_' );
+				$submenu_toggle_ids[ $key ] = $submenu_toggle_id;
+
+				if ( $submenu_toggle instanceof DOMElement ) {
+
+					$submenu_toggle->parentNode->insertBefore(
+						$this->create_amp_state( $submenu_toggle_id, false ),
+						$submenu_toggle
+					);
+					$submenu_toggle->setAttribute( 'on', 'tap:AMP.setState( { ' . $submenu_toggle_id . ': ! ' . $submenu_toggle_id . ' } )' );
+					$submenu_toggle->setAttribute(
+						'data-amp-bind-class',
+						sprintf( '%s + ( ' . $submenu_toggle_id . ' ? " active" : "" )', wp_json_encode( $submenu_toggle->getAttribute( 'class' ) ) )
+					);
+				}
+			}
+
+			foreach ( $submenus as $key => $submenu ) {
+				$submenu_toggle_id = $submenu_toggle_ids[ $key ];
+				if ( $submenu instanceof DOMElement && isset( $submenu_toggle_id ) ) {
+						error_log( $submenu_toggle_id . '---->'  );
+						$submenu->setAttribute(
+							'data-amp-bind-class',
+							sprintf( '%s + ( ' . $submenu_toggle_id . ' ? " active" : "" )', wp_json_encode( $submenu->getAttribute( 'class' ) ) )
+						);
+				}
+			}
+		}
+
 		// Set up search.
 		$search_toggle      = $xpath->query( '//a[ @class = "toggle search-toggle" ]' )->item( 0 );
 		$search_modal       = $xpath->query( '//div[ @class = "search-modal cover-modal" ]' )->item( 0 );
