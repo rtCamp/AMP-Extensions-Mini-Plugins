@@ -34,12 +34,10 @@ function is_amp() {
  */
 function add_hooks() {
 
-	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
 	/**
 	 *  Check if PDF Embedder plugin is active.
 	 */
-	if ( \is_plugin_active( 'pdf-embedder/pdf_embedder.php' ) && is_amp() ) {
+	if ( class_exists( 'pdfemb_basic_pdf_embedder' ) && is_amp() ) {
 
 		/**
 		 * The Action will override the scripts and styles.
