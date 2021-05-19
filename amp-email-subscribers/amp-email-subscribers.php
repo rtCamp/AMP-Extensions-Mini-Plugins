@@ -9,9 +9,9 @@
  *
  * @wordpress-plugin
  * Plugin Name: AMP compatibility plugin for Email Subscribers
- * Plugin URI: https://wpindia.co.in/
+ * Plugin URI: https://github.com/milindmore22/amp-email-subscribers/
  * Description: Plugin to add <a href="https://wordpress.org/plugins/amp/">AMP plugin</a> compatibility to <a href="https://wordpress.org/plugins/email-subscribers/" target="_blank">Email Subscribers & Newsletters</a>.
- * Version: 0.1
+ * Version: 0.2
  * Author: milindmore22, Google, rtCamp
  * Author URI: https://wpindia.co.in/
  * License: GNU General Public License v2 (or later)
@@ -44,7 +44,7 @@ function add_hooks() {
 		 * @see https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
 		 */
 		add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\override_scripts_and_styles', 11 );
-
+		
 		/**
 		 * Add sanitizers to convert non-AMP functions to AMP components.
 		 *
@@ -74,13 +74,6 @@ function override_scripts_and_styles() {
 	 * @see https://developer.wordpress.org/reference/functions/wp_dequeue_script/
 	 */
 	wp_dequeue_script( 'email-subscribers' );
-
-	/**
-	 * Adds your custom inline style.
-	 *
-	 * @see https://developer.wordpress.org/reference/functions/wp_add_inline_style/
-	 */
-	//wp_add_inline_style( 'plugin_name_style', file_get_contents( __DIR__ . '/css/amp-style.css' ) );
 }
 
 /**
@@ -94,27 +87,6 @@ function filter_sanitizers( $sanitizers ) {
 	$sanitizers[ __NAMESPACE__ . '\Sanitizer' ] = array();
 	return $sanitizers;
 }
-
-/**
- * Bonus improvement: add font-display:swap to the Google Fonts!
- *
- * @see https://developer.wordpress.org/reference/functions/wp_enqueue_style/
- * @see https://developers.google.com/fonts/docs/getting_started
- * @see https://developer.wordpress.org/reference/hooks/style_loader_src/
- *
- * @param string $src    Stylesheet URL.
- * @param string $handle Style handle.
- * @return string Filtered stylesheet URL.
- */
-function filter_font_style_loader_src( $src, $handle ) {
-	if ( 'google-font-handle' === $handle ) {
-		$src = add_query_arg( 'display', 'swap', $src );
-	}
-	return $src;
-}
-
-//add_filter( 'style_loader_src', __NAMESPACE__ . '\filter_font_style_loader_src', 10, 2 );
-
 
 /**
  * Add Mustache Messages.
