@@ -32,6 +32,9 @@ function amp_breeze_compat() {
 
 		// Disable style minification.
 		add_filter( 'breeze_filter_css_noptimize', '__return_true' );
+
+		// foce native lazy loading on AMP.
+		add_filter( 'breeze_use_native_lazy_load', '__return_true' );
 	}
 
 }
