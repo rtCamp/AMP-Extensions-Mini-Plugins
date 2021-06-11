@@ -6,7 +6,7 @@ A mini plugin to hide any element with class. default class `noamphtml`
 
 - The plugin provides filter `amp_hide_classes` you can pass array of classes you want to hide.
 - by default plugin uses `noamphtml` class.
-- You can either use noamphtml class in your theme or content.
+- You can either use noamphtml class in your theme or content or use the filter to add your own classes.
 - The element will be completely removed to reduce DOM impact.
 - Feel free to reach us on WordPress Support forum of AMP plugin.
 
