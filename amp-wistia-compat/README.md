@@ -1,6 +1,6 @@
 # AMP compatibility Plugin for Wistia
 
-A mini plugin oEmbed support and AMP compatibility for wistia oEmbed
+A mini plugin that adds oEmbed support and AMP compatibility.
 
 ## Notes
 
