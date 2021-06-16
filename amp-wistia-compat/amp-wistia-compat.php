@@ -9,10 +9,10 @@
  *
  * @wordpress-plugin
  * Plugin Name: AMP Wistia Embed Compat
- * Description: Adds AMP compatibility for Wistia Embed.
+ * Description: Adds AMP compatibility for Wistia Embed. The plugin needs oEmbed URL <a href="https://prnt.sc/15m91eg">( screenshot )</a>
  * Version: 0.0.1
  * Author: Milind, rtCamp
- * Author URI: https://milindmore.wordpress.com/
+ * Author URI: https://rtcamp.com
  * License: GNU General Public License v2 (or later)
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -43,6 +43,7 @@ add_filter(
 			return $cache;
 		}
 
+		$url_params           = array();
 		$data_media_hashed_id = $matches[3];
 		$url_components       = wp_parse_url( $url );
 		wp_parse_str( $url_components['query'], $url_params );
