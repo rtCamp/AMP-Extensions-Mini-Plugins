@@ -1,6 +1,6 @@
 <?php
 /**
- * AMP plugin name compatibility plugin bootstrap.
+ * AMP plugin to convert ad units to amp-ad units.
  *
  * @package   Google\AMP_Ad_Compat
  * @author    Your Name, Google

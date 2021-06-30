@@ -2,7 +2,7 @@
 /**
  * Sanitizer
  *
- * @package Google\AMP_Plugin_Name_Compat
+ * @package Google\AMP_AD_Compat
  */
 
 namespace Google\AMP_AD_Compat;
