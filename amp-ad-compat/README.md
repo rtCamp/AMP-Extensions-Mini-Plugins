@@ -34,7 +34,7 @@ data-ad-slot="1234567890"></ins>
 .
 ├── sanitizers
 │   ├── class-sanitizer.php
-└── amp-skeleton-compat.php
+└── amp-ad-compat.php
 ```
 ## Sanitizers
 The plugin uses `amp_content_sanitizers` filter to add custom sanitizers.
