@@ -5,11 +5,12 @@ The plugin will add tawk.to chat bot to your WordPress site.
 ## How to use the plugin?
 
 - Download and Install the plugin.
-- Create a account on http://www.tawk.to/ 
-- Add your site and create a chat widget (check tawk.to docs for help)
-- Once Chat widget is created copy direct chat link
-- Goto tawk.to dashboard -> Add On -> Chat Widget -> Direct Chat Link and copy it.
-- Open your site goto Dashboard -> Settings -> Reading paste Direct Chat link into input field and Save.
+- Create a account on http://www.tawk.to/
+- Add your site and create a chat widget (check [tawk.to](http://www.tawk.to/) docs for help)
+- Once Chat widget is created you can check that your live chat works on non AMP URLS.
+- Back from your Tawk dashboard navigate to [dashboard -> Add On -> Chat Widget -> Direct Chat - Link and copy the link](https://prnt.sc/1mbdwni).
+- Login to your WordPress site and navigate to "Settings -> Reading"
+- Paste the direct chat link into the "tawk.to Direct Chat Link" input field and Save.
 
 ## Plugin Limitations
 - The plugin uses amp-iframe which requires to be loaded after 600px of viewport, so you will see chat button after scrolling down to the middle of site.
