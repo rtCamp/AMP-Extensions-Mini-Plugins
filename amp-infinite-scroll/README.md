@@ -31,6 +31,9 @@ The first `footer` needs class as key and elemnt as value in a array, the footer
 #### Next Page Hide
 The second `next_page_hide` The elements such as header, widget area which you don't want to duplicate to avoid on next page can be added using class element pair, where class is key and element as value.
 
+#### More Code Samples for Themes Popular themes
+https://gist.github.com/milindmore22/3321c5eb54c9bf2f8c2121084d0c5f8c
+
 ## Plugin Structure
 
 ```markdown
