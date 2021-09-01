@@ -13,7 +13,7 @@ The AMP plugin for infinite Scroll.
 Usages
 ```php
 add_filter( 'amp_infinite_scroll_configs', function( $config ) {
-    $cofig = array(
+    $config = array(
 		'footer'         => array( 'site-footer' => 'footer' ),
 		'next_page_hide' => array( 
 			'widget-area' => 'aside',
