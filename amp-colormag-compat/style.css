@@ -1,0 +1,14 @@
+/* 
+    Created on : Dec 9, 2020, 2:17:21 AM
+    Author     : milind
+*/
+
+.main-small-navigation .menu-primary-container, .main-small-navigation .menu{
+    padding-top: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    .better-responsive-menu .sub-menu.sub-menu {
+	display: block;
+    }
+}
